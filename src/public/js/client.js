@@ -52,7 +52,7 @@ function getScheduleDoctorByDate() {
                                         <span class="d-block pb-1"
                                               style="border-bottom: 1px solid #ccc">${data.doctor.address}</span>
                                     </div>
-                                    <span class="d-block pt-2">Price: 50 USD</span>
+                                    <span class="d-block pt-2">Price: 500 Rupees</span>
                                 </div>
                         
                         `;
@@ -126,7 +126,7 @@ function specializationGetScheduleDoctorByDate() {
                                                 <span class="d-block pt-3 pb-1" style="text-transform: uppercase">Address:</span>
                                                 <span class="d-block pb-1" style="border-bottom: 1px solid #ccc">${data.doctor.address}</span>
                                             </div>
-                                            <span class="d-block pt-2">Price: 50 USD</span>
+                                            <span class="d-block pt-2">Price: 500 Rupees</span>
                          </div>
                     `;
                 } else {

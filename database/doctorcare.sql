@@ -3,9 +3,19 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2021 at 12:25 AM
+-- Generation Time: Jun 09, 2021 at 07:40 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+--
+-- Database: `doctorcare`
+--
+CREATE DATABASE IF NOT EXISTS `doctorcare` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `doctorcare`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -127,6 +137,15 @@ CREATE TABLE `extrainfos` (
   `deletedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `extrainfos`
+--
+
+INSERT INTO `extrainfos` (`id`, `patientId`, `historyBreath`, `placeId`, `oldForms`, `sendForms`, `moreInfo`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
+(6, 6, '', 0, NULL, NULL, '', '2021-06-09 23:58:14', '2021-06-09 23:58:14', NULL),
+(7, 7, '', 0, NULL, NULL, '', '2021-06-10 00:00:20', '2021-06-10 00:00:20', NULL),
+(8, 8, '', 0, NULL, '{\"0\":\"1623259096437-player_19.png\",\"1\":\"1623259239275-player_19.png\",\"2\":\"1623259866394-player_19.png\",\"3\":\"1623260193932-player_19.png\",\"4\":\"1623260254808-player_19.png\"}', '', '2021-06-10 00:08:42', '2021-06-10 00:37:41', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -159,7 +178,10 @@ CREATE TABLE `patients` (
 
 INSERT INTO `patients` (`id`, `doctorId`, `statusId`, `name`, `phone`, `dateBooking`, `timeBooking`, `email`, `gender`, `year`, `address`, `description`, `isSentForms`, `isTakeCare`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
 (4, 2, 1, 'Alex', '0321456789', '15/11/2020', '08:00 - 09:00', 'alex@gmail.com', 'male', '1998', 'usa', 'aaaaaaaaaaaaaaaaaa', 1, 0, '2020-11-14 20:20:18', '2020-11-14 20:22:14', NULL),
-(5, 2, 1, 'Kane', '0321848484', '15/11/2020', '10:00 - 11:00', 'kane@gmail.com', 'male', '1997', 'usa', '', 0, 0, '2020-11-15 08:27:25', '2020-11-15 08:27:40', NULL);
+(5, 2, 1, 'Kane', '0321848484', '15/11/2020', '10:00 - 11:00', 'kane@gmail.com', 'male', '1997', 'usa', '', 0, 0, '2020-11-15 08:27:25', '2020-11-15 08:27:40', NULL),
+(6, 2, 4, 'Ankit', '0981231231', '10/06/2021', '09:00 - 10:00', 'samcracker190897@gmail.com', 'male', '18', 'Delhi', 'Fever', 0, 0, '2021-06-09 23:58:14', '2021-06-09 23:58:14', NULL),
+(7, 2, 4, 'Ankit', '0992123811', '10/06/2021', '09:00 - 10:00', 'samcracker190897@gmail.com', 'male', '18', 'Delhi', 'Fever', 0, 0, '2021-06-10 00:00:20', '2021-06-10 00:00:20', NULL),
+(8, 3, 1, 'Ankit', '0912312123', '10/06/2021', '09:00 - 10:00', 'samcracker190897@gmail.com', 'male', '18', 'Delhi', 'Fever', 1, 0, '2021-06-10 00:08:42', '2021-06-10 00:18:24', NULL);
 
 -- --------------------------------------------------------
 
@@ -278,7 +300,7 @@ INSERT INTO `schedules` (`id`, `doctorId`, `date`, `time`, `maxBooking`, `sumBoo
 (303, 2, '09/06/2021', '15:00 - 16:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
 (304, 2, '09/06/2021', '16:00 - 17:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
 (305, 2, '10/06/2021', '08:00 - 09:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
-(306, 2, '10/06/2021', '09:00 - 10:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
+(306, 2, '10/06/2021', '09:00 - 10:00', '2', '2', '2021-06-09 02:01:26', '2021-06-10 00:00:21', NULL),
 (307, 2, '10/06/2021', '10:00 - 11:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
 (308, 2, '10/06/2021', '11:00 - 12:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
 (309, 2, '10/06/2021', '13:00 - 14:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
@@ -302,7 +324,7 @@ INSERT INTO `schedules` (`id`, `doctorId`, `date`, `time`, `maxBooking`, `sumBoo
 (327, 3, '09/06/2021', '15:00 - 16:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
 (328, 3, '09/06/2021', '16:00 - 17:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
 (329, 3, '10/06/2021', '08:00 - 09:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
-(330, 3, '10/06/2021', '09:00 - 10:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
+(330, 3, '10/06/2021', '09:00 - 10:00', '2', '2', '2021-06-09 02:01:26', '2021-06-10 00:10:53', NULL),
 (331, 3, '10/06/2021', '10:00 - 11:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
 (332, 3, '10/06/2021', '11:00 - 12:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
 (333, 3, '10/06/2021', '13:00 - 14:00', '2', '0', '2021-06-09 02:01:26', '2021-06-09 02:01:26', NULL),
@@ -462,7 +484,7 @@ CREATE TABLE `session` (
 --
 
 INSERT INTO `session` (`sid`, `expires`, `data`, `createdAt`, `updatedAt`) VALUES
-('qBPJ8W3MEBbscmb14j1BNerVvxuuqL-z', '2021-06-10 05:24:00', '{\"cookie\":{\"originalMaxAge\":86399994,\"expires\":\"2021-06-09T22:24:00.908Z\",\"secure\":false,\"httpOnly\":false,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":1}}', '2021-06-09 04:08:44', '2021-06-09 05:24:00');
+('B0uLVmWEDkWLQ99qd1h6TV4NyikM4N_z', '2021-06-11 00:37:41', '{\"cookie\":{\"originalMaxAge\":86399999,\"expires\":\"2021-06-10T17:37:41.738Z\",\"secure\":false,\"httpOnly\":false,\"path\":\"/\"},\"flash\":{},\"passport\":{\"user\":3}}', '2021-06-10 00:17:00', '2021-06-10 00:37:41');
 
 -- --------------------------------------------------------
 
@@ -544,7 +566,12 @@ INSERT INTO `supporterlogs` (`id`, `patientId`, `supporterId`, `content`, `creat
 (9, 4, 8, 'Cancel with reason - The patient canceled the schedule', '2020-11-14 20:20:47', '2020-11-14 20:20:47', NULL),
 (10, 5, NULL, 'The patient made an appointment from the system ', '2020-11-15 08:27:25', '2020-11-15 08:27:25', NULL),
 (11, 5, 8, 'New appointments have been received', '2020-11-15 08:27:36', '2020-11-15 08:27:36', NULL),
-(12, 5, 8, 'The appointment has been successfully booked', '2020-11-15 08:27:40', '2020-11-15 08:27:40', NULL);
+(12, 5, 8, 'The appointment has been successfully booked', '2020-11-15 08:27:40', '2020-11-15 08:27:40', NULL),
+(13, 6, NULL, 'The patient made an appointment from the system ', '2021-06-09 23:58:15', '2021-06-09 23:58:15', NULL),
+(14, 7, NULL, 'The patient made an appointment from the system ', '2021-06-10 00:00:21', '2021-06-10 00:00:21', NULL),
+(15, 8, NULL, 'The patient made an appointment from the system ', '2021-06-10 00:08:43', '2021-06-10 00:08:43', NULL),
+(16, 8, 8, 'New appointments have been received', '2021-06-10 00:10:35', '2021-06-10 00:10:35', NULL),
+(17, 8, 8, 'The appointment has been successfully booked', '2021-06-10 00:10:53', '2021-06-10 00:10:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -581,10 +608,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `address`, `phone`, `ava
 (5, 'Doctor - Clever', 'doctor1@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'LA', '088456735', 'doctor2.jpg', 'male', '   ', 2, 1, '2020-11-13 19:44:36', '2020-11-13 20:20:26', NULL),
 (6, 'Doctor - Samiksa', 'doctor2@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Delhi', '088456735', '1623190208771-doctor-5.jpg', 'male', '         ', 2, 1, '2020-11-13 19:44:36', '2021-06-09 05:10:08', NULL),
 (7, 'Doctor - Bose', 'doctor3@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Delhi', '088456735', '1623190242012-doctor-4.jpg', 'male', '         ', 2, 1, '2020-11-13 19:44:36', '2021-06-09 05:10:42', NULL),
-(8, 'Supporter - Eric Pham', 'supporter@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Arizona', '088456736', 'supporter.png', 'male', NULL, 3, 1, '2020-11-13 19:44:36', '2020-11-13 19:44:36', NULL),
-(9, 'Supporter - Eric Pham 1', 'supporter1@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Arizona', '088456736', 'supporter.png', 'male', NULL, 3, 1, '2020-11-13 19:44:36', '2020-11-13 19:44:36', NULL),
-(10, 'Supporter - Eric Pham 2', 'supporter2@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Arizona', '088456736', 'supporter.png', 'male', NULL, 3, 1, '2020-11-13 19:44:36', '2020-11-13 19:44:36', NULL),
-(11, 'Supporter - Eric Pham 3', 'supporter3@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Arizona', '088456736', 'supporter.png', 'male', NULL, 3, 1, '2020-11-13 19:44:36', '2020-11-13 19:44:36', NULL);
+(8, 'Supporter - Divyanshu Gupta', 'supporter@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Arizona', '088456736', 'supporter.png', 'male', NULL, 3, 1, '2020-11-13 19:44:36', '2020-11-13 19:44:36', NULL),
+(9, 'Supporter - David', 'supporter1@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Arizona', '088456736', 'supporter.png', 'male', NULL, 3, 1, '2020-11-13 19:44:36', '2020-11-13 19:44:36', NULL),
+(10, 'Supporter - Ayush', 'supporter2@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Arizona', '088456736', 'supporter.png', 'male', NULL, 3, 1, '2020-11-13 19:44:36', '2020-11-13 19:44:36', NULL),
+(11, 'Supporter - Jatin', 'supporter3@gmail.com', '$2a$07$Bq0hCq3kVrvKUHfMT0NJROmQkx09aEQkGlwBGEdw799YJvWqH1kuy', 'Arizona', '088456736', 'supporter.png', 'male', NULL, 3, 1, '2020-11-13 19:44:36', '2020-11-13 19:44:36', NULL);
 
 --
 -- Indexes for dumped tables
@@ -707,13 +734,13 @@ ALTER TABLE `doctor_users`
 -- AUTO_INCREMENT for table `extrainfos`
 --
 ALTER TABLE `extrainfos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `places`
@@ -755,7 +782,7 @@ ALTER TABLE `statuses`
 -- AUTO_INCREMENT for table `supporterlogs`
 --
 ALTER TABLE `supporterlogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
